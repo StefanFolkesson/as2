@@ -1,11 +1,12 @@
 package com.example.stefanfolkesson.myfirstproject;
 
 import android.arch.persistence.room.Room;
-import android.content.Intent;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+
 
 public class Game extends AppCompatActivity {
     public String TAG ="MinLog";
@@ -25,5 +26,8 @@ public class Game extends AppCompatActivity {
         view.setRotation((float)90+view.getRotation());
 
     }
+
+
+
 
 }
