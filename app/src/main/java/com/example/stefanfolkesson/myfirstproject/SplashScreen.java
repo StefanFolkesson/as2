@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +23,7 @@ import java.net.URL;
 
 public class SplashScreen extends AppCompatActivity {
     public String TAG ="MinLog";
-
+    public EditText ipn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +36,9 @@ public class SplashScreen extends AppCompatActivity {
       //  db.userDao().insertAll(namn);
         Log.d("datainfo", "onCreate: "+db.userDao().getAll().get(0).getFirstName());
         setContentView(R.layout.activity_splash_screen);
-        new LongOperation().execute("");
+//        new LongOperation().execute("");
+        ipn = findViewById(R.id.ip);
+
 
     }
 
@@ -44,11 +47,15 @@ public class SplashScreen extends AppCompatActivity {
         CharSequence text = "Hello toast!";
         int duration = Toast.LENGTH_SHORT;
         Toast.makeText(context, text, duration).show();
+
+        new LongOperation().execute("");
 /*        finish();
         overridePendingTransition(0, 0);
         startActivity(getIntent());
         overridePendingTransition(0, 0);*/
-        recreate();
+       // recreate();
+
+
     }
 
     public void OMGIpushedTheButton(View view){
@@ -73,7 +80,12 @@ public class SplashScreen extends AppCompatActivity {
             HttpURLConnection urlConnection = null;
             String data = null;
             try {
-                url = new URL("http://192.168.56.1:8080/test.php");
+//                EditText ip = findViewById(R.id.ip);
+                Log.d(TAG, "doInBackground: starting");
+                String shortURL = ipn.getText().toString();
+                String longURL = "http://"+shortURL+"/test.php";
+                Log.d(TAG, "doInBackground: "+longURL);
+                url = new URL(longURL);
 
                 urlConnection = (HttpURLConnection) url
                         .openConnection();
@@ -81,7 +93,7 @@ public class SplashScreen extends AppCompatActivity {
 
                 InputStreamReader isw = new InputStreamReader(in);
                 data = readStream(isw);
-
+                Log.d(TAG, "doInBackground: trying");
             } catch (Exception e) {
                 Log.d("datainfo", "doInBackground:  Error ");
                 e.printStackTrace();
