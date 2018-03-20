@@ -58,6 +58,14 @@ public class SplashScreen extends AppCompatActivity {
 
     }
 
+
+    public void startMeny(View view){
+        Log.d(TAG, "OMGIpushedTheButton: ");
+        Intent intent = new Intent(this, Meny.class);
+        startActivity(intent);
+
+    }
+
     private class LongOperation extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... params) {
