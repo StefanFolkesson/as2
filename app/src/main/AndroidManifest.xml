@@ -22,6 +22,14 @@
         <activity
             android:name=".Meny"
             android:label="@string/title_activity_meny"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Gallery"
+            android:label="@string/title_activity_gallery"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Tools"
+            android:label="@string/title_activity_tools"
             android:theme="@style/AppTheme"></activity>
     </application>
 

@@ -14,16 +14,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class Meny extends AppCompatActivity
+public class Gallery extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    DrawerLayout drawer;
-    NavigationView navigationView;
-    Toolbar toolbar = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_meny);
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setContentView(R.layout.activity_gallery);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -35,31 +33,14 @@ public class Meny extends AppCompatActivity
             }
         });
 
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
-        // get menu from navigationView
-        Menu menu = navigationView.getMenu();
-
-        // find MenuItem you want to change
-//        MenuItem nav_camara = menu.findItem(R.id.nav_camera);
-
-        // set new title to the MenuItem
-//        nav_camara.setTitle("NewTitleForCamera");
-
-        // do the same for other MenuItems
-        MenuItem nav_gallery = menu.findItem(R.id.nav_gallery);
-        nav_gallery.setTitle("NewTitleForGallery");
-
-        // add NavigationItemSelectedListener to check the navigation clicks
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-
-
     }
 
     @Override
@@ -101,15 +82,15 @@ public class Meny extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_meny) {
-            Intent m = new Intent(Meny.this,Meny.class);
+            Intent m = new Intent(Gallery.this,Meny.class);
             startActivity(m);
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-            Intent g = new Intent(Meny.this, Gallery.class);
+            Intent g = new Intent(Gallery.this, Gallery.class);
             startActivity(g);
 
         } else if (id == R.id.nav_tools) {
-            Intent t = new Intent(Meny.this,Tools.class);
+            Intent t = new Intent(Gallery.this,Tools.class);
             startActivity(t);
 
         }

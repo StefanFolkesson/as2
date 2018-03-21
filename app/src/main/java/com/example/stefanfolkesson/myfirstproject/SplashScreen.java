@@ -36,9 +36,7 @@ public class SplashScreen extends AppCompatActivity {
       //  db.userDao().insertAll(namn);
         Log.d("datainfo", "onCreate: "+db.userDao().getAll().get(0).getFirstName());
         setContentView(R.layout.activity_splash_screen);
-//        new LongOperation().execute("");
         ipn = findViewById(R.id.ip);
-
 
     }
 
@@ -49,20 +47,13 @@ public class SplashScreen extends AppCompatActivity {
         Toast.makeText(context, text, duration).show();
 
         new LongOperation().execute("");
-/*        finish();
-        overridePendingTransition(0, 0);
-        startActivity(getIntent());
-        overridePendingTransition(0, 0);*/
-       // recreate();
-
-
+        //recreate();
     }
 
     public void OMGIpushedTheButton(View view){
         Log.d(TAG, "OMGIpushedTheButton: ");
         Intent intent = new Intent(this, Game.class);
         startActivity(intent);
-
     }
 
 
@@ -80,7 +71,6 @@ public class SplashScreen extends AppCompatActivity {
             HttpURLConnection urlConnection = null;
             String data = null;
             try {
-//                EditText ip = findViewById(R.id.ip);
                 Log.d(TAG, "doInBackground: starting");
                 String shortURL = ipn.getText().toString();
                 String longURL = "http://"+shortURL+"/test.php";
@@ -119,6 +109,7 @@ public class SplashScreen extends AppCompatActivity {
         protected void onPostExecute(String result) {
             TextView txt = (TextView) findViewById(R.id.textView);
             txt.setText("res"+result);
+
         }
 
         @Override

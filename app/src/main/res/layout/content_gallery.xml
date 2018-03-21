@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.stefanfolkesson.myfirstproject.Meny"
+    tools:context="com.example.stefanfolkesson.myfirstproject.Gallery"
     tools:showIn="@layout/app_bar_meny">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/meny_start"
+        android:text="@string/gallery"
         tools:layout_editor_absoluteX="135dp"
         tools:layout_editor_absoluteY="308dp" />
 </RelativeLayout>
